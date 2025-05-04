@@ -1,0 +1,57 @@
+{
+  "services": {
+    "LaunchPage": {
+      "adapter": {
+        "config": {
+          "catalogs": [],
+          "groups": [
+            {
+              "id": "Application",
+              "title": "Job Application",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "CV",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Show CV",
+                    "targetURL": "#Application-display"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "NavTargetResolution": {
+      "config": {
+        "enableClientSideTargetResolution": true
+      }
+    },
+    "ClientSideTargetResolution": {
+      "adapter": {
+        "config": {
+          "inbounds": {
+            "Application-display": {
+              "semanticObject": "Application",
+              "action": "display",
+              "title": "Show CV",
+              "signature": {
+                "parameters": {}
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+       "additionalInformation": "SAPUI5.Component=jobapplication",
+                "url": "jobapplication/webapp"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ }
+
