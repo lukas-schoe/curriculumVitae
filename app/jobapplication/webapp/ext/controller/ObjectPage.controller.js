@@ -15,6 +15,12 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 				this.base.getAppComponent().getRouter().navTo("ApplicantsObjectPage", {
 					key: "ID=100001,IsActiveEntity=true"
 				});
+			},
+			onAfterRendering: function () {
+				var oDialog = this.getView().byId("CreateDialog::Applicants");
+				if (oDialog) {
+					oDialog.close();
+				}
 			}
 		}
 	});

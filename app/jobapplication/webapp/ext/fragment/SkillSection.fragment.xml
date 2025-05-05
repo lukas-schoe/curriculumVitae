@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" 
+                         xmlns="sap.m" 
+                         xmlns:layout="sap.ui.layout">
+  <layout:Grid id="_IDGenGrid" defaultSpan="L3 M3 S12" hSpacing="2" vSpacing="1">
+
+    <!-- Column 1: Languages -->
+    <VBox id="_IDGenVBox" >
+      <Title id="_IDGenTitle" text="{i18n>section.languages}" level="H5" />
+      <HBox id="_IDGenHBox" alignItems="Center">
+        <Text id="_IDGenText" text="{i18n>german}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator1" value="{path: 'skills/0/german', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+      <HBox id="_IDGenHBox1" alignItems="Center">
+        <Text id="_IDGenText1" text="{i18n>english}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator2" value="{path: 'skills/0/english', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+    </VBox>
+
+    <!-- Column 2: Office -->
+    <VBox id="_IDGenVBox1">
+      <Title id="_IDGenTitle1" text="{i18n>section.office}" level="H5" />
+      <HBox id="_IDGenHBox2" alignItems="Center">
+        <Text id="_IDGenText2" text="{i18n>office}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator3" value="{path: 'skills/0/office', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+    </VBox>
+
+    <!-- Column 3: SAP Programming -->
+    <VBox id="_IDGenVBox2" >
+      <Title id="_IDGenTitle2" text="{i18n>section.sapProgramming}" level="H5" />
+      <HBox id="_IDGenHBox3" alignItems="Center">
+        <Text id="_IDGenText3" text="{i18n>cap}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator4" value="{path: 'skills/0/cap', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+      <HBox id="_IDGenHBox4" alignItems="Center">
+        <Text id="_IDGenText4" text="{i18n>rap}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator5" value="{path: 'skills/0/rap', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+      <HBox id="_IDGenHBox5" alignItems="Center">
+        <Text id="_IDGenText5" text="{i18n>abap}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator6" value="{path: 'skills/0/abap', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+    </VBox>
+
+    <!-- Column 4: General Programming -->
+    <VBox id="_IDGenVBox3">
+      <Title id="_IDGenTitle3" text="{i18n>section.generalProgramming}" level="H5" />
+      <HBox id="_IDGenHBox6" alignItems="Center">
+        <Text id="_IDGenText6" text="{i18n>javaSkript}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator7" value="{path: 'skills/0/javaSkript', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+      <HBox id="_IDGenHBox7" alignItems="Center">
+        <Text id="_IDGenText7" text="{i18n>python}" width="100px" />
+        <RatingIndicator id="_IDGenRatingIndicator8" value="{path: 'skills/0/python', targetType: 'any'}" maxValue="5" enabled="false" iconSize="1rem" />
+      </HBox>
+    </VBox>
+
+  </layout:Grid>
+</core:FragmentDefinition>

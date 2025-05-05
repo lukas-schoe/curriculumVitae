@@ -116,30 +116,54 @@
                 "header": {
                   "visible": true,
                   "anchorBarVisible": true
+                },
+                "body": {
+                  "sections": {
+                    "SkillSection": {
+                      "template": "jobapplication.ext.fragment.SkillSection",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "i18nCareerStages"
+                      },
+                      "title": "{i18n>skills}"
+                    }
+                  }
                 }
               },
               "controlConfiguration": {
                 "education/@com.sap.vocabularies.UI.v1.LineItem#i18nEducationalSteps": {
-                  "tableSettings": {
-                    "widthIncludingColumnHeader": true,
-                    "selectionMode": "Auto",
-                    "type": "GridTable",
-                    "personalization": {
-                      "sort": false,
-                      "filter": false,
-                      "column": false
-                    },
-                    "enableExport": false,
-                    "enablePaste": false,
-                    "disableCopyToClipboard": false
-                  },
                   "columns": {
                     "DataField::description": {
                       "width": "auto"
+                    },
+                    "DataField::title": {
+                      "width": "50px"
+                    },
+                    "DataField::person::education::title": {
+                      "width": "160px"
+                    },
+                    "DataField::institution": {
+                      "width": "160px"
                     }
                   }
                 },
                 "career/@com.sap.vocabularies.UI.v1.LineItem#i18nCareerStages": {
+                  "columns": {
+                    "DataField::description": {
+                      "width": "auto"
+                    },
+                    "DataField::title": {
+                      "width": "160px"
+                    },
+                    "DataField::person::career::place": {
+                      "width": "160px"
+                    },
+                    "DataField::company": {
+                      "width": "160px"
+                    }
+                  }
+                },
+                "hobbies/@com.sap.vocabularies.UI.v1.LineItem#i18nHobbies": {
                   "columns": {
                     "DataField::description": {
                       "width": "auto"

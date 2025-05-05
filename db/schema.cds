@@ -11,6 +11,7 @@ entity Applicants : managed {
       nationality   : String(40);
       email         : String(255);
       phone         : String(30);
+      linkedIn      : String(255);
       street        : String(100);
       postalCode    : String(20);
       city          : String(100);
@@ -50,12 +51,16 @@ entity CareerStages : managed {
 }
 
 entity Skills : managed {
-  key ID          : UUID;
-      person      : Association to Applicants;
-      title       : String(100);
-      institution : String(100);
-      place       : String(100);
-      description : String(200);
+  key ID         : UUID;
+      person     : Association to Applicants;
+      german     : Double;
+      english    : Double;
+      cap        : Double;
+      rap        : Double;
+      abap       : Double;
+      javaSkript : Double;
+      python     : Double;
+      office     : Double;
 }
 
 entity Hobbies : managed {

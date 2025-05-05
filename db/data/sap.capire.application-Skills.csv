@@ -1,3 +1,2 @@
-ID;person_ID;title;institution;place;description
-aaaaaaa1-aaaa-aaaa-aaaa-aaaaaaaaaaaa;1;Java Development;SAP;Walldorf;Built backend apps
-bbbbbbb2-bbbb-bbbb-bbbb-bbbbbbbbbbbb;1;Marketing Strategy;Google;London;Managed digital campaigns
+ID;person_ID;german;english;cap;rap;abap;javaSkript;python;office
+5442e3f7-35fb-4d22-9772-175ee834f466;100001;4.5;4;4;3.5;3.5;3.5;3;4
