@@ -4,6 +4,7 @@ namespace sap.capire.application;
 
 entity Applicants : managed {
   key ID            : Integer;
+      fullName      : String(60);
       firstName     : String(40);
       surName       : String(40);
       dateOfBirth   : Date;
@@ -17,6 +18,8 @@ entity Applicants : managed {
       profilPicture : LargeBinary @Core.MediaType: 'image/png';
       education     : Composition of many EducationalSteps
                         on education.person = $self;
+      career        : Composition of many CareerStages
+                        on career.person = $self;
       skills        : Composition of many Skills
                         on skills.person = $self;
       hobbies       : Composition of many Hobbies
@@ -33,7 +36,17 @@ entity EducationalSteps : managed {
       endDate     : Date;
       degree      : String(50);
       description : String(200);
+}
 
+entity CareerStages : managed {
+  key ID          : UUID;
+      person      : Association to Applicants;
+      title       : String(100);
+      company     : String(100);
+      place       : String(100);
+      startDate   : Date;
+      endDate     : Date;
+      description : String(200);
 }
 
 entity Skills : managed {
@@ -48,6 +61,6 @@ entity Skills : managed {
 entity Hobbies : managed {
   key ID          : UUID;
       person      : Association to Applicants;
-      title       : String(100);
-      description : String(200);
+      title       : localized String(100);
+      description : localized String(200);
 }

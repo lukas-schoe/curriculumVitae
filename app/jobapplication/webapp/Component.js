@@ -1,8 +1,23 @@
-sap.ui.define(["sap/fe/core/AppComponent"], function(AppComponent) {
-	"use strict";
-	return AppComponent.extend("jobapplication.Component", {
-	  metadata: { manifest: "json" }
-	});
-  });
-  
-/* eslint no-undef:0 */
+sap.ui.define(
+    ["sap/fe/core/AppComponent"],
+    function (Component) {
+        "use strict";
+
+        return Component.extend("jobapplication.Component", {
+            metadata: {
+                manifest: "json"
+            },
+
+            /**
+             * Gets the component startup parameters, setting preferredMode to 'create'.
+             * @public
+             * @returns 
+             */
+            getStartupParameters: function() {
+                return Promise.resolve({
+                    preferredMode: ["create"]
+                });
+            }
+        });
+    }
+);

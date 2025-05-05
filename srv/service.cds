@@ -1,9 +1,10 @@
 using { sap.capire.application as my } from '../db/schema';
 service JobApplication {
 
-  // /** For displaying lists of Books */
-  @readonly entity Applicants as projection on my.Applicants { * }
-
+ @odata.draft.enabled //Enable Draft
+    entity Applicants as projection on my.Applicants;
+    entity EducationalSteps as projection on my.EducationalSteps;
+ entity CareerStages as projection on my.CareerStages;
 
   // /** For display in details pages */
   // @readonly entity Books as projection on my.Books { *,

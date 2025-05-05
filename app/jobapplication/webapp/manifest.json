@@ -1,37 +1,37 @@
 {
-  "_version": "1.49.0",
+  "_version": "1.65.0",
   "sap.app": {
     "id": "jobapplication",
-    "applicationVersion": {
-      "version": "1.0.0"
-    },
     "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
-    "i18n": "i18n/i18n.properties",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:feop",
+      "version": "1.17.4",
+      "toolsId": "ff56c62b-6f0f-4a81-9df4-cc2ea0f5c8ad"
+    },
     "dataSources": {
-      "JobApplication": {
-        "uri": "odata/v4/catalog/",
+      "mainService": {
+        "uri": "/odata/v4/job-application/",
         "type": "OData",
         "settings": {
+          "annotations": [],
           "odataVersion": "4.0"
         }
       }
     },
     "crossNavigation": {
       "inbounds": {
-        "Application-display": {
-          "semanticObject": "Applicants",
+        "jobapplication-display": {
+          "semanticObject": "jobapplication",
           "action": "display",
-          "title": "{{appTitle}}",
-          "info": "{{appInfo}}",
-          "subTitle": "{{appSubTitle}}",
-          "icon": "sap-icon://course-book",
-          "indicatorDataSource": {
-            "dataSource": "JobApplication",
-            "path": "Applicants/$count",
-            "refresh": 1800
-          },
+          "title": "{{jobapplication-display.flpTitle}}",
+          "subTitle": "{{jobapplication-display.flpSubtitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -42,7 +42,14 @@
   },
   "sap.ui": {
     "technology": "UI5",
-    "fullWidth": false,
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
     "deviceTypes": {
       "desktop": true,
       "tablet": true,
@@ -50,58 +57,109 @@
     }
   },
   "sap.ui5": {
+    "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.115.1",
+      "minUI5Version": "1.135.0",
       "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
         "sap.fe.templates": {}
       }
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
-      },
-      "": {
-        "dataSource": "JobApplication",
-        "settings": {
-            "synchronizationMode": "None",
-            "operationMode": "Server",
-            "autoExpandSelect" : true,
-            "earlyRequests": true,
-            "groupProperties": {
-                "default": {
-                    "submit": "Auto"
-                }
-            }
-        }
-      }
-    },
-    "routing": {
-      "routes": [
-        {
-          "pattern": ":?query:",
-          "name": "Applicants",
-          "target": "Applicants"
-        }
-      ],
-      "targets": {
-        "Applicants": {
-          "type": "Component",
-          "id": "Applicants",
-          "name": "sap.fe.templates.ListReport",
-          "options": {
-            "settings": {
-              "entitySet": "Applicants",
-              "initialLoad": true
-            }
-          }
-        }
-      },
-      "config": {}
     },
     "contentDensities": {
       "compact": true,
       "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "jobapplication.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": "Applicants({key}):?query:",
+          "name": "ApplicantsObjectPage",
+          "target": "ApplicantsObjectPage"
+        }
+      ],
+      "targets": {
+        "ApplicantsObjectPage": {
+          "type": "Component",
+          "id": "ApplicantsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": true,
+              "contextPath": "/Applicants",
+              "content": {
+                "header": {
+                  "visible": true,
+                  "anchorBarVisible": true
+                }
+              },
+              "controlConfiguration": {
+                "education/@com.sap.vocabularies.UI.v1.LineItem#i18nEducationalSteps": {
+                  "tableSettings": {
+                    "widthIncludingColumnHeader": true,
+                    "selectionMode": "Auto",
+                    "type": "GridTable",
+                    "personalization": {
+                      "sort": false,
+                      "filter": false,
+                      "column": false
+                    },
+                    "enableExport": false,
+                    "enablePaste": false,
+                    "disableCopyToClipboard": false
+                  },
+                  "columns": {
+                    "DataField::description": {
+                      "width": "auto"
+                    }
+                  }
+                },
+                "career/@com.sap.vocabularies.UI.v1.LineItem#i18nCareerStages": {
+                  "columns": {
+                    "DataField::description": {
+                      "width": "auto"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "jobapplication.ext.controller.ObjectPage"
+          }
+        }
+      }
     }
   },
   "sap.fiori": {
