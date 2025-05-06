@@ -161,6 +161,15 @@
                     "DataField::company": {
                       "width": "160px"
                     }
+                  },
+                  "actions": {
+                    "createSkill": {
+                      "press": ".extension.jobapplication.ext.controller.ObjectPage.onCreateSkill",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "{i18n>create}"
+                    }
                   }
                 },
                 "hobbies/@com.sap.vocabularies.UI.v1.LineItem#i18nHobbies": {

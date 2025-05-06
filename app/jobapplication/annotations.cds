@@ -229,6 +229,7 @@ annotate service.Applicants with @(
     },
     UI.Identification : [
     ],
+    UI.DeleteHidden : true,
 );
 
 annotate service.EducationalSteps with @(

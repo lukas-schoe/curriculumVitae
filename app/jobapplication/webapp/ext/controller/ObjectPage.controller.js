@@ -21,6 +21,9 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 				if (oDialog) {
 					oDialog.close();
 				}
+			},
+			onCreateSkill: function() {
+				console.log("onCreateSkill");
 			}
 		}
 	});
