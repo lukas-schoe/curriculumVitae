@@ -71,4 +71,3 @@ resources:
       config:
         xsappname: job-application-${org}-${space}
         tenant-mode: dedicated
-3483377b-9852-4d6b-bd54-988616fe07f6
