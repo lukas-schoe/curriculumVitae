@@ -35,6 +35,10 @@
     },
     "sql": {
       "native_hana_associations": false
+    },
+    "hana": {
+      "deploy-format": "hdbtable",
+      "syntax": "hdi"
     }
   }
 }

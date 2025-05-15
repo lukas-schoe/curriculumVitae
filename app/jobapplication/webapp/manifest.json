@@ -123,7 +123,7 @@
                       "template": "jobapplication.ext.fragment.SkillSection",
                       "position": {
                         "placement": "Before",
-                        "anchor": "i18nCareerStages"
+                        "anchor": "CareerFacet"
                       },
                       "title": "{i18n>skills}"
                     }
@@ -140,10 +140,13 @@
                       "width": "50px"
                     },
                     "DataField::person::education::title": {
-                      "width": "160px"
+                      "width": "180px"
                     },
                     "DataField::institution": {
                       "width": "160px"
+                    },
+                    "DataField::startDate": {
+                      "width": "110px"
                     }
                   }
                 },
@@ -160,15 +163,9 @@
                     },
                     "DataField::company": {
                       "width": "160px"
-                    }
-                  },
-                  "actions": {
-                    "createSkill": {
-                      "press": ".extension.jobapplication.ext.controller.ObjectPage.onCreateSkill",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": false,
-                      "text": "{i18n>create}"
+                    },
+                    "DataField::startDate": {
+                      "width": "110px"
                     }
                   }
                 },

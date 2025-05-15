@@ -69,23 +69,38 @@ annotate service.Applicants with @(
     },
     UI.Facets                             : [
         {
-            $Type : 'UI.ReferenceFacet',
+            $Type : 'UI.CollectionFacet',
+            ID    : 'CareerFacet',
             Label : '{i18n>CareerStages}',
-            ID    : 'i18nCareerStages',
-            Target: 'career/@UI.SelectionPresentationVariant#i18nCareerStages',
+            Facets: [{
+                $Type : 'UI.ReferenceFacet',
+                ID    : 'CareerStagesTable',
+                Label : '',
+                Target: 'career/@UI.SelectionPresentationVariant#i18nCareerStages'
+            }]
         },
         {
-            $Type : 'UI.ReferenceFacet',
+            $Type : 'UI.CollectionFacet',
+            ID    : 'EducationFacet',
             Label : '{i18n>educationalSteps}',
-            ID    : 'i18nEducationalSteps',
-            Target: 'education/@UI.SelectionPresentationVariant#i18nEducationalSteps',
+            Facets: [{
+                $Type : 'UI.ReferenceFacet',
+                ID    : 'EducationalStepsTable',
+                Label : '',
+                Target: 'education/@UI.SelectionPresentationVariant#i18nEducationalSteps'
+            }]
         },
         {
-            $Type : 'UI.ReferenceFacet',
+            $Type : 'UI.CollectionFacet',
+            ID    : 'HobbierFacet',
             Label : '{i18n>hobbies}',
-            ID    : 'i18nHobbies',
-            Target: 'hobbies/@UI.LineItem#i18nHobbies',
-        },
+            Facets: [{
+                $Type : 'UI.ReferenceFacet',
+                ID    : 'HobbiesTable',
+                Label : '',
+                Target: 'hobbies/@UI.LineItem#i18nHobbies'
+            }]
+        }
     ],
     UI.HeaderFacets                       : [
         {
@@ -171,10 +186,16 @@ annotate service.Applicants with @(
                 Label: '{i18n>Phone}',
             },
             {
-                $Type : 'UI.DataFieldWithUrl',
-                Value : linkedIn,
-                Label : '{i18n>Linkedin}',
-                Url : 'https://www.linkedin.com/in/lukas-schoe/'
+                $Type: 'UI.DataFieldWithUrl',
+                Value: linkedIn,
+                Label: '{i18n>Linkedin}',
+                Url  : 'https://www.linkedin.com/in/lukas-schoe/'
+            },
+             {
+                $Type: 'UI.DataFieldWithUrl',
+                Value: git,
+                Label: '{i18n>GitHub}',
+                Url  : 'https://www.linkedin.com/in/lukas-schoe/'
             },
         ],
     },
@@ -227,9 +248,8 @@ annotate service.Applicants with @(
             },
         ],
     },
-    UI.Identification : [
-    ],
-    UI.DeleteHidden : true,
+    UI.Identification                     : [],
+    UI.DeleteHidden                       : true,
 );
 
 annotate service.EducationalSteps with @(
@@ -264,7 +284,8 @@ annotate service.EducationalSteps with @(
         $Type              : 'UI.SelectionPresentationVariantType',
         PresentationVariant: {
             $Type         : 'UI.PresentationVariantType',
-            Visualizations: ['@UI.LineItem#i18nEducationalSteps', ],
+            Visualizations: ['@UI.LineItem#i18nEducationalSteps',
+            ],
             SortOrder     : [{
                 $Type     : 'Common.SortOrderType',
                 Property  : startDate,
@@ -328,7 +349,8 @@ annotate service.CareerStages with @(
         $Type              : 'UI.SelectionPresentationVariantType',
         PresentationVariant: {
             $Type         : 'UI.PresentationVariantType',
-            Visualizations: ['@UI.LineItem#i18nCareerStages', ],
+            Visualizations: ['@UI.LineItem#i18nCareerStages',
+            ],
             SortOrder     : [{
                 $Type     : 'Common.SortOrderType',
                 Property  : startDate,
@@ -344,25 +366,23 @@ annotate service.CareerStages with @(
 
 
 annotate service.Applicants with {
-    email @Communication.IsEmailAddress;
-    phone @Communication.IsPhoneNumber;
+    email    @Communication.IsEmailAddress;
+    phone    @Communication.IsPhoneNumber;
     linkedIn @Core.IsURL
 };
 
 
 annotate service.Skills @(
 
-  UI.DataPoint #Rating : {
-    Value :  cap,
-    TargetValue : 4,
-    Visualization : #Rating
-  },
+    UI.DataPoint #Rating: {
+        Value        : cap,
+        TargetValue  : 4,
+        Visualization: #Rating
+    },
 
-  UI.LineItem : [
-    {
+    UI.LineItem         : [{
         $Type : 'UI.DataFieldForAnnotation',
         Label : 'Rating',
-        Target : '@UI.DataPoint#Rating'
-    },
-  ],
+        Target: '@UI.DataPoint#Rating'
+    }, ],
 );

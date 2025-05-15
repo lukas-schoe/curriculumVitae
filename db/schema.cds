@@ -12,6 +12,7 @@ entity Applicants : managed {
       email         : String(255);
       phone         : String(30);
       linkedIn      : String(255);
+      git           : String(255);
       street        : String(100);
       postalCode    : String(20);
       city          : String(100);
